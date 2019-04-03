@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WelcomeJPanel">
+  <grid id="27dc6" binding="rootPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="685" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="11bc5" class="javax.swing.JTextArea" binding="gameTitle">
+        <constraints/>
+        <properties>
+          <font size="16"/>
+          <text value="Игра &quot;2х2=4&quot;"/>
+        </properties>
+      </component>
+      <component id="7662b" class="javax.swing.JTextPane" binding="доброПожаловатьВИгруTextPane" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Добро пожаловать в игру &quot;2х2=4&quot;. Ваша задача правильно отвечать на вопросы. "/>
+        </properties>
+      </component>
+      <component id="7ab35" class="javax.swing.JTextArea" binding="textTypeYourName">
+        <constraints/>
+        <properties>
+          <text value="Укажите ваше имя:"/>
+        </properties>
+      </component>
+      <component id="af32f" class="javax.swing.JTextField" binding="textFieldYourName">
+        <constraints/>
+        <properties/>
+      </component>
+      <component id="6d03b" class="javax.swing.JTextArea" binding="textSelectСomplexity">
+        <constraints/>
+        <properties>
+          <text value="Выберите уровень сложности"/>
+        </properties>
+      </component>
+      <component id="4b214" class="javax.swing.JComboBox" binding="complexityJComboBox">
+        <constraints/>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
