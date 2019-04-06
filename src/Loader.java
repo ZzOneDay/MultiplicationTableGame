@@ -50,14 +50,21 @@ public class Loader {
         JButton jButton = jButtons[jButtonGoodNumber];
         jButton.setText(String.valueOf(answer));
 
-        for (int i = 0; i < jButtons.length-1; i++)
-        {
-            if (jButtons[i].getText().equals(jButtons[i+1].getText()))
-            {
-                jButtons[i].setText(jButtons[i].getText()+1);
+        //Метод проверки чтобы не было одинаковых ответов
+        for (int i = 0; i < jButtons.length; i++) {
+            if (i == jButtonGoodNumber) {
+                continue;
+            }
+            for (JButton button : jButtons) {
+                if (jButtons[i].getText().equals(button.getText())) {
+                    System.out.println("Кнопка изменена");
+                    System.out.println(jButtons[i].getText() + "было");
+                    int newButton = Integer.valueOf(jButtons[i].getText()) + 1;
+                    jButtons[i].setText(String.valueOf(newButton));
+                    System.out.println("Стало" + newButton);
+                }
             }
         }
-
         return answer;
     }
 
