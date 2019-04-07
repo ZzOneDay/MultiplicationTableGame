@@ -40,7 +40,7 @@ public class WelcomeJPanel extends Loader{
                     break;
             }
             if (checkJTextField(textFieldYourName)) {
-                name = textFieldYourName.getText();
+                name = textFieldYourName.getText().trim();
                 // complexity = complexityJComboBox.getSelectedIndex(); // Не нужно, т.к. определяю выше.
                 rootPanel.setVisible(false);
                 System.out.println("Переход");
