@@ -1,9 +1,12 @@
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.io.*;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.*;
+import java.util.List;
 
 public class Loader {
 
@@ -82,6 +85,7 @@ public class Loader {
             timer.stop();
             endGame(points, "Жизни закончились!");
         } else {
+            timer.stop();
             jPanel.setVisible(false);
             MainJPanel mainJPanel = new MainJPanel(level, miss, points);
             jFrame.setContentPane(mainJPanel.getRootPanel());
@@ -92,9 +96,8 @@ public class Loader {
 
     void setTimer (JLabel label, int time, Timer timer, int points) {
         if (time == 0) {
-
             timer.stop();
-            endGame(points, "Время вышло!"); // TODO Как-то прокинуть сюда points
+            endGame(points, "Время вышло!");
         }
 
         int minutes = (time/60);
@@ -132,30 +135,53 @@ public class Loader {
     }
 
     public String readFromFile () {
-        String line;
+        String currentLine;
+        String tempLine[];
         String str = "";
+        List<List<String>> arrayList = new ArrayList<>();
+        BufferedReader bufferedReader = null; // Вместо файла можно указать имя
         try {
             File file = new File(fileName);
             if (!file.exists()) {
                 throw new IOException("Файл не создан");
             }
-
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file)); // Вместо файла можно указать имя
-
-            while ((line = bufferedReader.readLine()) != null) {
-                str = str + line + "\n";
-                // TODO: Сюда добавить метод чтения (куда читаем?)
+            bufferedReader = new BufferedReader(new FileReader(file));
+            // Читаем в ArrayList
+            while ((currentLine = bufferedReader.readLine()) != null) {
+                tempLine = currentLine.split(" ");
+                arrayList.add(Arrays.asList(tempLine));
             }
-
-            bufferedReader.close();
         } catch (IOException e) {
             System.out.println("Ошибка чтения из файла: " + e);
         } finally {
-            // Сюда можно прописать действия, которые точно выполнятся после блока try-catch, например, закрытие файла
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                System.out.println("Ошибка чтения из файла: " + e);
+            }
         }
+
+        // Магия, блядь, над которой я до 3 ночи сидел. Одна строка, Карл!
+        arrayList.sort((left, right) -> Integer.parseInt(right.get(2)) - Integer.parseInt(left.get(2)));
+
+        // Преобразовываем обратно в строку для вывода
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 0; j < arrayList.get(i).size(); j++) {
+                stringBuilder.append(arrayList.get(i).get(j));
+                stringBuilder.append(" ");
+            }
+            stringBuilder.append("\n");
+        }
+
+        str = stringBuilder.toString();
+
         return str;
     }
 
+
+    // TODO: Есть ошибка с перезапуском таймера после окончания игры
     void endGame (int points, String text) {
         MainJPanel mainJPanel = new MainJPanel(1,0,0);
         jFrame.setContentPane(mainJPanel.getRootPanel());
