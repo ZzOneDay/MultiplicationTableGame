@@ -21,6 +21,7 @@ public class WelcomeJPanel extends Loader{
         complexityJComboBox.addItem("Сложно");
 
         nextButton.addActionListener(e -> {
+            // Читаем сложность. Далее она будет пробрасываться в проверку ответа и каждое новое jPanel
             switch (complexityJComboBox.getSelectedItem().toString()){
                 case ("Легко"):
                     complexity = 60;
