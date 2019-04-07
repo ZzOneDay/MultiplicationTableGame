@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainJPanel">
   <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="625" height="400"/>
+      <xy x="20" y="20" width="657" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -183,15 +183,11 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="9baab" class="javax.swing.JTextArea" binding="ProgressBarText">
+                  <component id="cc758" class="javax.swing.JLabel" binding="label">
                     <constraints/>
                     <properties>
-                      <text value="Оставшееся  время"/>
+                      <text value=""/>
                     </properties>
-                  </component>
-                  <component id="ef81" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
-                    <constraints/>
-                    <properties/>
                   </component>
                 </children>
               </grid>
