@@ -7,6 +7,7 @@ import java.io.FileReader;
 
 public class Loader {
 
+    // TODO: Убрать нафиг глобальные переменные
     public static String name; // Имя игрока
     public static int complexity; // Сложность
     public static String fileName = "results.txt"; // Файл с результатами
@@ -14,6 +15,10 @@ public class Loader {
 
 
     public static void main(String[] args) {
+        startGame();
+    }
+
+    static void startGame() {
         jFrame = new JFrame();
         WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
         jFrame.setContentPane(welcomeJPanel.getRootPanel());
@@ -24,6 +29,7 @@ public class Loader {
         jFrame.setVisible(true);
         jFrame.setMinimumSize(new Dimension(800, 600));
     }
+
 
     Integer nextMission (JButton jButton1, JButton jButton2, JButton jButton3, JButton jButton4, JTextArea jTextArea1,
                          JTextArea jTextArea2)
@@ -93,7 +99,7 @@ public class Loader {
         // Если 3 ошибки - заканчиваем игру TODO: Переделать на 3 жизни
         if (miss == 3) {
             timer.stop();
-            endGame(points);
+            endGame(points, "Жизни закончились!");
         } else {
             jPanel.setVisible(false);
             MainJPanel mainJPanel = new MainJPanel(level, miss, points);
@@ -105,10 +111,9 @@ public class Loader {
 
     void setTimer (JLabel label, int time, Timer timer, int points) {
         if (time == 0) {
-            JOptionPane.showMessageDialog(jFrame, "Время вышло!\n" +
-                    "Игра окончена\n");
+
             timer.stop();
-            endGame(points); // TODO Как-то прокинуть сюда points
+            endGame(points, "Время вышло!"); // TODO Как-то прокинуть сюда points
         }
 
         int minutes = (time/60);
@@ -155,7 +160,6 @@ public class Loader {
             }
 
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file)); // Вместо файла можно указать имя
-            // Читаем пока в строку
 
             while ((line = bufferedReader.readLine()) != null) {
                 str = str + line + "\n";
@@ -171,10 +175,15 @@ public class Loader {
         return str;
     }
 
-    void endGame (int points) {
+    void endGame (int points, String text) {
         MainJPanel mainJPanel = new MainJPanel(1,0,0);
         jFrame.setContentPane(mainJPanel.getRootPanel());
 
+        JOptionPane.showMessageDialog(jFrame, text + "\n" +
+                "Игра окончена\n");
+
         printInFile(points);
+        jFrame.setVisible(false);
+        startGame();
     }
 }
