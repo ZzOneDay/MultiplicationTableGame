@@ -29,7 +29,7 @@ public class MainJPanel extends Loader{
     {
         time = complexity;
         System.out.println("Time: " + time);
-        timer = new Timer(1000, e -> setTimer(label, time--, timer));
+        timer = new Timer(1000, e -> setTimer(label, time--, timer, points));
         timer.start();
 
         System.out.println("Новое окно");

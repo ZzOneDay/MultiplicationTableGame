@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WelcomeJPanel extends Loader{
 
@@ -12,6 +14,7 @@ public class WelcomeJPanel extends Loader{
     private JPanel mainJPanel;
     private JButton nextButton;
     JTextPane textPanelYourMission;
+    private JButton btnResults;
 
     WelcomeJPanel ()
     {
@@ -49,6 +52,13 @@ public class WelcomeJPanel extends Loader{
                     JOptionPane.showMessageDialog(rootPanel,"Укажите ваше имя");
                     textFieldYourName.grabFocus();
                 }
+        });
+        btnResults.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Loader loader = new Loader();
+                JOptionPane.showMessageDialog(jFrame, loader.readFromFile());
+            }
         });
     }
 

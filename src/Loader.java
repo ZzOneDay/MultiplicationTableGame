@@ -7,8 +7,9 @@ import java.io.FileReader;
 
 public class Loader {
 
-    public static String name;
-    public static int complexity;
+    public static String name; // Имя игрока
+    public static int complexity; // Сложность
+    public static String fileName = "results.txt"; // Файл с результатами
     static JFrame jFrame;
 
 
@@ -40,7 +41,6 @@ public class Loader {
             int number = (int) (10.0 * Math.random() * 10.0 * Math.random());
 
             jButton5.setText(String.valueOf(number));
-
         }
 
         int jButtonGoodNumber = 0;
@@ -93,7 +93,7 @@ public class Loader {
         // Если 3 ошибки - заканчиваем игру TODO: Переделать на 3 жизни
         if (miss == 3) {
             timer.stop();
-            endGame(name, points);
+            endGame(points);
         } else {
             jPanel.setVisible(false);
             MainJPanel mainJPanel = new MainJPanel(level, miss, points);
@@ -103,12 +103,12 @@ public class Loader {
         }
     }
 
-    void setTimer (JLabel label, int time, Timer timer) {
+    void setTimer (JLabel label, int time, Timer timer, int points) {
         if (time == 0) {
             JOptionPane.showMessageDialog(jFrame, "Время вышло!\n" +
                     "Игра окончена\n");
             timer.stop();
-            // endGame(name, 777); // TODO Как-то прокинуть сюда points
+            endGame(points); // TODO Как-то прокинуть сюда points
         }
 
         int minutes = (time/60);
@@ -129,7 +129,7 @@ public class Loader {
         label.setText("Осталось времени: " + strMin + ":" + strSec);
     }
 
-    void printInFile (String fileName, String name, int points) {
+    void printInFile (int points) {
         try {
             File file = new File(fileName);
             if (!file.exists()) {
@@ -137,7 +137,7 @@ public class Loader {
             }
 
             FileWriter fileWriter = new FileWriter (file, true);
-            fileWriter.write(name + " - " + points + " очков.\n");
+            fileWriter.write(name + " - " + points + " points\n");
 
             fileWriter.close();
         } catch (IOException e){
@@ -145,7 +145,9 @@ public class Loader {
         }
     }
 
-    void readFromFile (String fileName) {
+    public String readFromFile () {
+        String line;
+        String str = "";
         try {
             File file = new File(fileName);
             if (!file.exists()) {
@@ -154,8 +156,9 @@ public class Loader {
 
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file)); // Вместо файла можно указать имя
             // Читаем пока в строку
-            String line;
+
             while ((line = bufferedReader.readLine()) != null) {
+                str = str + line + "\n";
                 // TODO: Сюда добавить метод чтения (куда читаем?)
             }
 
@@ -165,12 +168,13 @@ public class Loader {
         } finally {
             // Сюда можно прописать действия, которые точно выполнятся после блока try-catch, например, закрытие файла
         }
+        return str;
     }
 
-    void endGame (String name, int points) {
+    void endGame (int points) {
         MainJPanel mainJPanel = new MainJPanel(1,0,0);
         jFrame.setContentPane(mainJPanel.getRootPanel());
 
-        printInFile("results.txt", name, points);
+        printInFile(points);
     }
 }
