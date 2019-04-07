@@ -24,15 +24,15 @@ public class WelcomeJPanel extends Loader{
             // Читаем сложность. Далее она будет пробрасываться в проверку ответа и каждое новое jPanel
             switch (complexityJComboBox.getSelectedItem().toString()){
                 case ("Легко"):
-                    complexity = 60;
-                    System.out.println("Complexity: " + complexity);
-                    break;
-                case ("Нормально"):
                     complexity = 30;
                     System.out.println("Complexity: " + complexity);
                     break;
+                case ("Нормально"):
+                    complexity = 15;
+                    System.out.println("Complexity: " + complexity);
+                    break;
                 case ("Сложно"):
-                    complexity = 10;
+                    complexity = 5;
                     System.out.println("Complexity: " + complexity);
                     break;
             }
@@ -41,7 +41,7 @@ public class WelcomeJPanel extends Loader{
                 // complexity = complexityJComboBox.getSelectedIndex(); // Не нужно, т.к. определяю выше.
                 rootPanel.setVisible(false);
                 System.out.println("Переход");
-                MainJPanel mainJPanel = new MainJPanel(1,0,0, complexity);
+                MainJPanel mainJPanel = new MainJPanel(1,0,0);
                 jFrame.setContentPane(mainJPanel.getRootPanel());
             }
             else
