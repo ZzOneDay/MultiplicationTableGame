@@ -70,7 +70,7 @@ public class Loader {
     }
 
     void checkAnswer (JButton jButton, Integer answer, JPanel jPanel, Integer level, Integer points, Integer miss,
-                      Timer timer)
+                      Timer timer, int complexity)
     {
         if (jButton.getText().equals(String.valueOf(answer)))
         {
@@ -93,7 +93,7 @@ public class Loader {
 
 
 
-    void setTimer (JLabel label, int count, Timer timer) {
+    void setTimer (JLabel label, int count, Timer timer, int complexity) {
         if (count == 0) {
             JOptionPane.showMessageDialog(jFrame, "Время вышло!\n" +
                     "Игра окончена\n");
