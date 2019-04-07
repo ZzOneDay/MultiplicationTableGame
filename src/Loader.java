@@ -4,7 +4,7 @@ import java.awt.*;
 public class Loader {
 
     String name;
-    Integer complexity;
+    int complexity;
     static JFrame jFrame;
 
 
@@ -14,13 +14,14 @@ public class Loader {
         jFrame.setContentPane(welcomeJPanel.getRootPanel());
         jFrame.setSize(800, 600);
         jFrame.setLocationRelativeTo(null);
-        jFrame.setTitle("Our first windows application");
+        jFrame.setTitle("2x2=4");
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
         jFrame.setMinimumSize(new Dimension(800, 600));
     }
 
-    Integer nextMission (JButton jButton1, JButton jButton2, JButton jButton3, JButton jButton4, JTextArea jTextArea1, JTextArea jTextArea2)
+    Integer nextMission (JButton jButton1, JButton jButton2, JButton jButton3, JButton jButton4, JTextArea jTextArea1,
+                         JTextArea jTextArea2)
     {
         int numberOne = (int) (10.0*Math.random());
         jTextArea1.setText(String.valueOf(numberOne));
@@ -58,7 +59,7 @@ public class Loader {
             for (JButton button : jButtons) {
                 if (jButtons[i].getText().equals(button.getText())) {
                     System.out.println("Кнопка изменена");
-                    System.out.println(jButtons[i].getText() + "было");
+                    System.out.println("Было: " + jButtons[i].getText());
                     int newButton = Integer.valueOf(jButtons[i].getText()) + 1;
                     jButtons[i].setText(String.valueOf(newButton));
                     System.out.println("Стало" + newButton);
@@ -68,7 +69,8 @@ public class Loader {
         return answer;
     }
 
-    void checkAnswer (JButton jButton, Integer answer, JPanel jPanel, Integer level, Integer points, Integer miss)
+    void checkAnswer (JButton jButton, Integer answer, JPanel jPanel, Integer level, Integer points, Integer miss,
+                      Timer timer)
     {
         if (jButton.getText().equals(String.valueOf(answer)))
         {
@@ -82,10 +84,39 @@ public class Loader {
             }
         level +=1;
         jPanel.setVisible(false);
-        MainJPanel mainJPanel = new MainJPanel(level,miss, points);
+        timer.stop();
+        MainJPanel mainJPanel = new MainJPanel(level, miss, points, complexity);
         jFrame.setContentPane(mainJPanel.getRootPanel());
         System.out.println(level);
         System.out.println(points);
     }
 
+
+
+    void setTimer (JLabel label, int count, Timer timer) {
+        if (count == 0) {
+            JOptionPane.showMessageDialog(jFrame, "Время вышло!\n" +
+                    "Игра окончена\n");
+            timer.stop();
+            MainJPanel mainJPanel = new MainJPanel(1,0,0, complexity);
+            jFrame.setContentPane(mainJPanel.getRootPanel());
+        }
+
+        Integer minutes = (count/60);
+        String strMin = "0";
+        if (minutes < 10) {
+            strMin += minutes;
+        } else {
+            strMin = String.valueOf(minutes);
+        }
+
+        Integer seconds = (count)%60;
+        String strSec = "0";
+        if (seconds < 10) {
+            strSec += seconds;
+        } else {
+            strSec = String.valueOf(seconds);
+        }
+        label.setText("Осталось времени: " + strMin + ":" + strSec);
+    }
 }
