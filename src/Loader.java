@@ -137,7 +137,7 @@ public class Loader {
     public String readFromFile () {
         String currentLine;
         String tempLine[];
-        String str = "";
+        String str;
         List<List<String>> arrayList = new ArrayList<>();
         BufferedReader bufferedReader = null; // Вместо файла можно указать имя
         try {
@@ -164,10 +164,11 @@ public class Loader {
         // Магия, блядь, над которой я до 3 ночи сидел. Одна строка, Карл!
         arrayList.sort((left, right) -> Integer.parseInt(right.get(2)) - Integer.parseInt(left.get(2)));
 
-        // Преобразовываем обратно в строку для вывода
+        // Преобразовываем обратно в строку для вывода и добавляем номер
         StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < arrayList.size(); i++) {
+            stringBuilder.append((i + 1) + ". ");
             for (int j = 0; j < arrayList.get(i).size(); j++) {
                 stringBuilder.append(arrayList.get(i).get(j));
                 stringBuilder.append(" ");
@@ -181,11 +182,7 @@ public class Loader {
     }
 
 
-    // TODO: Есть ошибка с перезапуском таймера после окончания игры
     void endGame (int points, String text) {
-        MainJPanel mainJPanel = new MainJPanel(1,0,0);
-        jFrame.setContentPane(mainJPanel.getRootPanel());
-
         JOptionPane.showMessageDialog(jFrame, text + "\n" +
                 "Игра окончена\n");
 

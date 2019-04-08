@@ -92,7 +92,7 @@
               <component id="af32f" class="javax.swing.JTextField" binding="textFieldYourName">
                 <constraints border-constraint="Center"/>
                 <properties>
-                  <text value="ANDREY"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
