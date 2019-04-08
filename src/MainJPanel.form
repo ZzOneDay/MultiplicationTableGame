@@ -89,7 +89,7 @@
                   </component>
                 </children>
               </grid>
-              <grid id="fdfe" binding="answerjPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+              <grid id="fdfe" binding="answerJPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints border-constraint="Center"/>
                 <properties/>
                 <border type="none"/>
