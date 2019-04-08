@@ -31,23 +31,17 @@ public class Loader {
     }
 
 
-    Integer nextMission (JButton jButton1, JButton jButton2, JButton jButton3, JButton jButton4, JTextArea jTextArea1,
-                         JTextArea jTextArea2)
-    {
-        int numberOne = (int) (10.0*Math.random());
+    Integer nextMission(JButton jButton1, JButton jButton2, JButton jButton3, JButton jButton4, JTextArea jTextArea1,
+                        JTextArea jTextArea2) {
+        int numberOne = getNumber();
         jTextArea1.setText(String.valueOf(numberOne));
-        int numberTwo = (int) (10.0*Math.random());
+        int numberTwo = getNumber();
         jTextArea2.setText(String.valueOf(numberTwo));
         int answer = numberOne * numberTwo;
 
         JButton []jButtons = {jButton1, jButton2, jButton3, jButton4};
 
-        for (JButton jButton5 : jButtons) {
-
-            int number = (int) (10.0 * Math.random() * 10.0 * Math.random());
-
-            jButton5.setText(String.valueOf(number));
-        }
+        setRandomAnswerToButton(jButtons);
 
         int jButtonGoodNumber = 0;
         for (int i = 0; i < (int) (10.0 * Math.random()); i++)
@@ -61,21 +55,8 @@ public class Loader {
         JButton jButton = jButtons[jButtonGoodNumber];
         jButton.setText(String.valueOf(answer));
 
-        //Метод проверки чтобы не было одинаковых ответов
-        for (int i = 0; i < jButtons.length; i++) {
-            if (i == jButtonGoodNumber) {
-                continue;
-            }
-            for (JButton button : jButtons) {
-                if (jButtons[i].getText().equals(button.getText())) {
-                    System.out.println("Кнопка изменена");
-                    System.out.println("Было: " + jButtons[i].getText());
-                    int newButton = Integer.valueOf(jButtons[i].getText()) + 1;
-                    jButtons[i].setText(String.valueOf(newButton));
-                    System.out.println("Стало" + newButton);
-                }
-            }
-        }
+        testDoubleRandomAnswerToButton(jButtons);
+
         return answer;
     }
 
@@ -185,5 +166,40 @@ public class Loader {
         printInFile(points);
         jFrame.setVisible(false);
         startGame();
+    }
+
+    //Варианты чисел умножени от [2-9]
+    private Integer getNumber() {
+        int number = getRandomNumber();
+        while (number < 2) {
+            number = getRandomNumber();
+        }
+        return number;
+    }
+
+    private Integer getRandomNumber() {
+        return (int) (10.0 * Math.random());
+    }
+
+    private void setRandomAnswerToButton(JButton[] jButton) {
+        for (JButton button : jButton) {
+            button.setText(String.valueOf(getNumber() * getNumber()));
+        }
+    }
+
+    //Убирает одинаковые ответы в кнопках
+    private void testDoubleRandomAnswerToButton(JButton[] jButtons) {
+        for (int a = 0; a < jButtons.length; a++) {
+            for (int b = 0; b < jButtons.length; b++) {
+                if (a == b) {
+                    continue;
+                }
+                while (jButtons[a].getText().equals(jButtons[b].getText())) {
+                    int newNumber = getNumber() * getNumber();
+                    jButtons[a].setText(String.valueOf(newNumber));
+                    System.out.println("change to" + newNumber);
+                }
+            }
+        }
     }
 }
