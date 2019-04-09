@@ -23,8 +23,10 @@ public class Loader {
 
     static void startGame() {
         jFrame = new JFrame();
-        WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
-        jFrame.setContentPane(welcomeJPanel.getRootPanel());
+//        WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
+        EndGame endGame = new EndGame();
+        jFrame.setContentPane(endGame.getRootPanel());
+//        jFrame.setContentPane(welcomeJPanel.getRootPanel());
         jFrame.setSize(800, 600);
         jFrame.setLocationRelativeTo(null);
         jFrame.setTitle("2x2=4");
@@ -73,11 +75,11 @@ public class Loader {
             JOptionPane.showMessageDialog(jFrame, "Ответ верный");
         }
         else
-            {
-                timer.stop();
-                JOptionPane.showMessageDialog(jFrame,"Неверный ответ.\nПравильный ответ:" + answer);
-                miss+=1;
-            }
+        {
+            timer.stop();
+            JOptionPane.showMessageDialog(jFrame,"Неверный ответ.\nПравильный ответ:" + answer);
+            miss+=1;
+        }
         level +=1;
 
         // Если 3 ошибки - заканчиваем игру TODO: Переделать на 3 жизни
