@@ -119,18 +119,22 @@ public class Loader {
     }
 
     void printInFile (int points) {
+        FileWriter fileWriter = null;
         try {
             File file = new File(fileName);
             if (!file.exists()) {
                 file.createNewFile();
             }
-
-            FileWriter fileWriter = new FileWriter (file, true);
+            fileWriter = new FileWriter (file, true);
             fileWriter.write(name + " - " + points + " points\n");
-
-            fileWriter.close();
         } catch (IOException e){
             System.out.println("Ошибка записи в файл: " + e);
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Ошибка закрытия файла для записи: " + e);
+            }
         }
     }
 
@@ -157,7 +161,7 @@ public class Loader {
             try {
                 bufferedReader.close();
             } catch (IOException e) {
-                System.out.println("Ошибка чтения из файла: " + e);
+                System.out.println("Ошибка закрытия файла для чтения: " + e);
             }
         }
 
@@ -182,8 +186,8 @@ public class Loader {
     }
 
 
-    void endGame (int points, String text) {
-        JOptionPane.showMessageDialog(jFrame, text + "\n" +
+    void endGame (int points, String textMessage) {
+        JOptionPane.showMessageDialog(jFrame, textMessage + "\n" +
                 "Игра окончена\n");
 
         printInFile(points);
@@ -224,14 +228,6 @@ public class Loader {
                 }
             }
         }
-    }
-
-    // Геттеры и сеттеры
-    public String getName () {
-        return name;
-    }
-    public void setName (String name) {
-        this.name = name;
     }
 
 
