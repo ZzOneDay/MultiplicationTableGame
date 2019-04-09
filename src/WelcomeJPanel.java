@@ -40,7 +40,12 @@ public class WelcomeJPanel extends Loader{
                     break;
             }
             if (checkJTextField(textFieldYourName)) {
-                name = textFieldYourName.getText().trim();
+                name = textFieldYourName.getText().trim().replaceAll("\\s+", "_");
+
+                // Жалкая неудачная попытка избавиться от глобальных переменных
+//                Loader loader = new Loader();
+//                loader.setName("Vasya");
+
                 // complexity = complexityJComboBox.getSelectedIndex(); // Не нужно, т.к. определяю выше.
                 rootPanel.setVisible(false);
                 System.out.println("Переход");
@@ -56,8 +61,7 @@ public class WelcomeJPanel extends Loader{
         btnResults.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Loader loader = new Loader();
-                JOptionPane.showMessageDialog(jFrame, loader.readFromFile());
+                JOptionPane.showMessageDialog(jFrame, readFromFile());
             }
         });
     }
