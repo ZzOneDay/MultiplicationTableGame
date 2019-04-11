@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class EndGame extends Loader {
@@ -19,6 +21,13 @@ public class EndGame extends Loader {
         textPaneForResult.setText(loader.readFromFile());
 
          rootPanel.setLayout(new BoxLayout(rootPanel,BoxLayout.Y_AXIS));
+        buttonNewGame.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.setVisible(false);
+                startGame();
+            }
+        });
     }
 
     JPanel getRootPanel() {

@@ -23,10 +23,10 @@ public class Loader {
 
     static void startGame() {
         jFrame = new JFrame();
-//        WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
-        EndGame endGame = new EndGame();
-        jFrame.setContentPane(endGame.getRootPanel());
-//        jFrame.setContentPane(welcomeJPanel.getRootPanel());
+        WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
+//        EndGame endGame = new EndGame();
+//        jFrame.setContentPane(endGame.getRootPanel());
+        jFrame.setContentPane(welcomeJPanel.getRootPanel());
         jFrame.setSize(800, 600);
         jFrame.setLocationRelativeTo(null);
         jFrame.setTitle("2x2=4");
@@ -192,9 +192,10 @@ public class Loader {
         JOptionPane.showMessageDialog(jFrame, textMessage + "\n" +
                 "Игра окончена\n");
 
+
         printInFile(points);
-        jFrame.setVisible(false);
-        startGame();
+        EndGame endGame = new EndGame();
+        jFrame.setContentPane(endGame.getRootPanel());
     }
 
     //Варианты чисел умножени от [2-9]
