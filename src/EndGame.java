@@ -16,11 +16,12 @@ public class EndGame extends Loader {
     private JTextPane textPaneForResult;
     private JPanel endGame;
 
-    EndGame () {
+    EndGame (int points) {
         Loader loader = new Loader();
         textPaneForResult.setText(loader.readFromFile());
+        textPanelYourResult.setText("Вы набрали " + points + " очков");
 
-         rootPanel.setLayout(new BoxLayout(rootPanel,BoxLayout.Y_AXIS));
+        rootPanel.setLayout(new BoxLayout(rootPanel,BoxLayout.Y_AXIS));
         buttonNewGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

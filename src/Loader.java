@@ -188,7 +188,7 @@ public class Loader {
                 "Игра окончена\n");
 
         printInFile(points);
-        EndGame endGame = new EndGame();
+        EndGame endGame = new EndGame(points);
         jFrame.setContentPane(endGame.getRootPanel());
     }
 
