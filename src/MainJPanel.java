@@ -30,13 +30,13 @@ public class MainJPanel extends Loader{
     private Integer answer;
 
 
-    MainJPanel (Integer level, Integer miss, Integer points)
+    MainJPanel (Integer level, Integer miss, Integer points, int restTimer)
     {
         this.level = level;
         this.miss = miss;
         this.points = points;
 
-        time = 15;
+        time = restTimer;
         timer = new Timer(1000, e -> setTimer(label, time--, timer, points));
         timer.start();
 
@@ -54,7 +54,7 @@ public class MainJPanel extends Loader{
 
     private ActionListener actionListenerByButtonCheckAnswer (JButton jButton)
     {
-        return e -> checkAnswer(jButton, answer, rootPanel, level, points, miss, timer);
+        return e -> checkAnswer(jButton, answer, rootPanel, level, points, miss, timer, time);
     }
 
 

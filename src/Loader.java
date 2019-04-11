@@ -65,7 +65,7 @@ public class Loader {
     }
 
     void checkAnswer (JButton jButton, Integer answer, JPanel jPanel, Integer level, Integer points, Integer miss,
-                      Timer timer)
+                      Timer timer, int time)
     {
         if (jButton.getText().equals(String.valueOf(answer)))
         {
@@ -88,7 +88,7 @@ public class Loader {
         } else {
             timer.stop();
             jPanel.setVisible(false);
-            MainJPanel mainJPanel = new MainJPanel(level, miss, points);
+            MainJPanel mainJPanel = new MainJPanel(level, miss, points, time);
             jFrame.setContentPane(mainJPanel.getRootPanel());
             System.out.println(level);
             System.out.println(points);
