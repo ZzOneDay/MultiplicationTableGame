@@ -71,28 +71,24 @@ public class Loader {
         {
             timer.stop();
             points += 1;
-            JOptionPane.showMessageDialog(jFrame, "Ответ верный");
+            //JOptionPane.showMessageDialog(jFrame, "Ответ верный");
+            // TODO: Сделать информирование об успешности ответа без всплывающего сообщения
         }
         else
         {
             timer.stop();
-            JOptionPane.showMessageDialog(jFrame,"Неверный ответ.\nПравильный ответ:" + answer);
+            //JOptionPane.showMessageDialog(jFrame,"Неверный ответ.\nПравильный ответ:" + answer);
             miss+=1;
+            points -= 1;
         }
         level +=1;
 
-        // Если 3 ошибки - заканчиваем игру TODO: Переделать на 3 жизни
-        if (miss == 3) {
-            timer.stop();
-            endGame(points, "Жизни закончились!");
-        } else {
-            timer.stop();
-            jPanel.setVisible(false);
-            MainJPanel mainJPanel = new MainJPanel(level, miss, points, time);
-            jFrame.setContentPane(mainJPanel.getRootPanel());
-            System.out.println(level);
-            System.out.println(points);
-        }
+        timer.stop();
+        jPanel.setVisible(false);
+        MainJPanel mainJPanel = new MainJPanel(level, miss, points, time);
+        jFrame.setContentPane(mainJPanel.getRootPanel());
+        System.out.println(level);
+        System.out.println(points);
     }
 
     void setTimer (JLabel label, int time, Timer timer, int points) {

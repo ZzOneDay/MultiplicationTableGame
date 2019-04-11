@@ -16,7 +16,6 @@ public class MainJPanel extends Loader{
     private JButton button4;
     JTextArea textAreaMission;
     private JTextArea numberMission;
-    JTextArea textAreaMiss;
     private JTextArea numberMiss;
     JPanel mainGameJPanel;
     private JTextArea numberPoint;
@@ -36,13 +35,13 @@ public class MainJPanel extends Loader{
         this.miss = miss;
         this.points = points;
 
-        time = restTimer;
+        time = restTimer; // Время текущего хода равно остатку от предыдущих
         timer = new Timer(1000, e -> setTimer(label, time--, timer, points));
         timer.start();
 
         System.out.println("Новое окно");
         numberMission.setText(String.valueOf(level));
-        numberMiss.setText(String.valueOf(miss));
+        //numberMiss.setText(String.valueOf(miss));
         numberPoint.setText(String.valueOf(points));
         answer = nextMission(button1,button2,button3,button4,firstNumber,secondNumber);
         button1.addActionListener(actionListenerByButtonCheckAnswer(button1));
