@@ -152,18 +152,6 @@
                       <text value="123"/>
                     </properties>
                   </component>
-                  <component id="fb41" class="javax.swing.JTextArea" binding="textAreaMiss">
-                    <constraints/>
-                    <properties>
-                      <text value="Ошибок"/>
-                    </properties>
-                  </component>
-                  <component id="fa3c" class="javax.swing.JTextArea" binding="numberMiss">
-                    <constraints/>
-                    <properties>
-                      <text value="123"/>
-                    </properties>
-                  </component>
                   <component id="f1bde" class="javax.swing.JTextArea" binding="textAreaPoint">
                     <constraints/>
                     <properties>

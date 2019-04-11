@@ -24,7 +24,7 @@ public class WelcomeJPanel extends Loader{
 
                 rootPanel.setVisible(false);
                 System.out.println("Переход");
-                MainJPanel mainJPanel = new MainJPanel(1,0,0);
+                MainJPanel mainJPanel = new MainJPanel(1,0,0, 15);
                 jFrame.setContentPane(mainJPanel.getRootPanel());
             }
             else
