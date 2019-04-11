@@ -12,7 +12,6 @@ public class Loader {
 
     // TODO: Убрать нафиг глобальные переменные
     public static String name; // Имя игрока
-    public static int complexity; // Сложность
     public static String fileName = "results.txt"; // Файл с результатами
     static JFrame jFrame;
 

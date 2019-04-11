@@ -97,34 +97,6 @@
               </component>
             </children>
           </grid>
-          <grid id="3c18f" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-            <constraints/>
-            <properties>
-              <maximumSize width="32767" height="50"/>
-            </properties>
-            <border type="none"/>
-            <children>
-              <component id="6d03b" class="javax.swing.JTextArea" binding="textSelectComplexity">
-                <constraints/>
-                <properties>
-                  <text value="Выберите уровень сложности"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="320e2" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-            <constraints/>
-            <properties>
-              <maximumSize width="32767" height="50"/>
-            </properties>
-            <border type="none"/>
-            <children>
-              <component id="4b214" class="javax.swing.JComboBox" binding="complexityJComboBox">
-                <constraints/>
-                <properties/>
-              </component>
-            </children>
-          </grid>
           <grid id="89e5d" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints/>
             <properties/>
@@ -133,7 +105,7 @@
               <component id="8206b" class="javax.swing.JButton" binding="nextButton">
                 <constraints/>
                 <properties>
-                  <text value="Продолжить"/>
+                  <text value="Старт"/>
                 </properties>
               </component>
               <component id="8dc84" class="javax.swing.JButton" binding="btnResults">
