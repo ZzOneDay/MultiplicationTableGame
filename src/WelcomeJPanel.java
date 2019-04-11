@@ -9,8 +9,6 @@ public class WelcomeJPanel extends Loader{
     JTextPane textPaneHello;
     JTextArea textTypeYourName;
     private JTextField textFieldYourName;
-    JTextArea textSelectComplexity;
-    private JComboBox<String> complexityJComboBox;
     private JPanel mainJPanel;
     private JButton nextButton;
     JTextPane textPanelYourMission;
@@ -19,34 +17,11 @@ public class WelcomeJPanel extends Loader{
     WelcomeJPanel ()
     {
         mainJPanel.setLayout(new BoxLayout(mainJPanel,BoxLayout.Y_AXIS));
-        complexityJComboBox.addItem("Легко");
-        complexityJComboBox.addItem("Нормально");
-        complexityJComboBox.addItem("Сложно");
 
         nextButton.addActionListener(e -> {
-            // Читаем сложность. Далее она будет пробрасываться в проверку ответа и каждое новое jPanel
-            switch (complexityJComboBox.getSelectedItem().toString()){
-                case ("Легко"):
-                    complexity = 30;
-                    System.out.println("Complexity: " + complexity);
-                    break;
-                case ("Нормально"):
-                    complexity = 15;
-                    System.out.println("Complexity: " + complexity);
-                    break;
-                case ("Сложно"):
-                    complexity = 5;
-                    System.out.println("Complexity: " + complexity);
-                    break;
-            }
             if (checkJTextField(textFieldYourName)) {
                 name = textFieldYourName.getText().trim().replaceAll("\\s+", "_");
 
-                // Жалкая неудачная попытка избавиться от глобальных переменных
-//                Loader loader = new Loader();
-//                loader.setName("Vasya");
-
-                // complexity = complexityJComboBox.getSelectedIndex(); // Не нужно, т.к. определяю выше.
                 rootPanel.setVisible(false);
                 System.out.println("Переход");
                 MainJPanel mainJPanel = new MainJPanel(1,0,0);

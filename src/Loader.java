@@ -12,7 +12,6 @@ public class Loader {
 
     // TODO: Убрать нафиг глобальные переменные
     public static String name; // Имя игрока
-    public static int complexity; // Сложность
     public static String fileName = "results.txt"; // Файл с результатами
     static JFrame jFrame;
 
@@ -191,7 +190,6 @@ public class Loader {
     void endGame (int points, String textMessage) {
         JOptionPane.showMessageDialog(jFrame, textMessage + "\n" +
                 "Игра окончена\n");
-
 
         printInFile(points);
         EndGame endGame = new EndGame();

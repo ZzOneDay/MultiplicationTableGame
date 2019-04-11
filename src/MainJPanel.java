@@ -36,8 +36,7 @@ public class MainJPanel extends Loader{
         this.miss = miss;
         this.points = points;
 
-        time = complexity;
-        System.out.println("Time: " + time);
+        time = 15;
         timer = new Timer(1000, e -> setTimer(label, time--, timer, points));
         timer.start();
 
