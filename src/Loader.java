@@ -191,7 +191,6 @@ public class Loader {
         JOptionPane.showMessageDialog(jFrame, textMessage + "\n" +
                 "Игра окончена\n");
 
-
         printInFile(points);
         EndGame endGame = new EndGame();
         jFrame.setContentPane(endGame.getRootPanel());

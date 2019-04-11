@@ -37,7 +37,6 @@ public class MainJPanel extends Loader{
         this.points = points;
 
         time = 15;
-        System.out.println("Time: " + time);
         timer = new Timer(1000, e -> setTimer(label, time--, timer, points));
         timer.start();
 
