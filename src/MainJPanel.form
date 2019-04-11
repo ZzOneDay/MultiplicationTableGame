@@ -19,6 +19,8 @@
           <component id="185ca" class="javax.swing.JTextArea" binding="gameTitle">
             <constraints/>
             <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
               <font size="16"/>
               <maximumSize width="2147483647" height="2147483647"/>
               <minimumSize width="140" height="40"/>
@@ -40,6 +42,8 @@
               <component id="cb224" class="javax.swing.JTextArea" binding="textCommand">
                 <constraints/>
                 <properties>
+                  <editable value="false"/>
+                  <focusable value="true"/>
                   <font size="18"/>
                   <text value="Сколько будет"/>
                 </properties>
@@ -62,6 +66,8 @@
                   <component id="b5ab" class="javax.swing.JTextArea" binding="firstNumber">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <font size="20" style="1"/>
                       <text value="1"/>
                     </properties>
@@ -69,6 +75,8 @@
                   <component id="6dd3e" class="javax.swing.JTextArea" binding="textAreaX">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <font size="20" style="1"/>
                       <text value="x"/>
                     </properties>
@@ -76,6 +84,8 @@
                   <component id="36347" class="javax.swing.JTextArea" binding="secondNumber">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <font size="20" style="1"/>
                       <text value="2"/>
                     </properties>
@@ -83,6 +93,8 @@
                   <component id="aec81" class="javax.swing.JTextArea">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <font size="20" style="1"/>
                       <text value="="/>
                     </properties>
@@ -97,6 +109,7 @@
                   <component id="305ad" class="javax.swing.JButton" binding="button1">
                     <constraints/>
                     <properties>
+                      <focusable value="false"/>
                       <minimumSize width="150" height="50"/>
                       <preferredSize width="150" height="50"/>
                       <text value="Button"/>
@@ -105,6 +118,7 @@
                   <component id="5a10c" class="javax.swing.JButton" binding="button2">
                     <constraints/>
                     <properties>
+                      <focusable value="false"/>
                       <minimumSize width="150" height="50"/>
                       <preferredSize width="150" height="50"/>
                       <text value="Button"/>
@@ -113,6 +127,7 @@
                   <component id="7ebeb" class="javax.swing.JButton" binding="button3">
                     <constraints/>
                     <properties>
+                      <focusable value="false"/>
                       <minimumSize width="150" height="50"/>
                       <preferredSize width="150" height="50"/>
                       <text value="Button"/>
@@ -121,6 +136,7 @@
                   <component id="35e46" class="javax.swing.JButton" binding="button4">
                     <constraints/>
                     <properties>
+                      <focusable value="false"/>
                       <minimumSize width="150" height="50"/>
                       <preferredSize width="150" height="50"/>
                       <text value="Button"/>
@@ -143,36 +159,48 @@
                   <component id="a50f7" class="javax.swing.JTextArea" binding="textAreaMission">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <text value="Задание №"/>
                     </properties>
                   </component>
                   <component id="30ac2" class="javax.swing.JTextArea" binding="numberMission">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <text value="123"/>
                     </properties>
                   </component>
                   <component id="fb41" class="javax.swing.JTextArea" binding="textAreaMiss">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <text value="Ошибок"/>
                     </properties>
                   </component>
                   <component id="fa3c" class="javax.swing.JTextArea" binding="numberMiss">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <text value="123"/>
                     </properties>
                   </component>
                   <component id="f1bde" class="javax.swing.JTextArea" binding="textAreaPoint">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <text value="Очков"/>
                     </properties>
                   </component>
                   <component id="ac7b1" class="javax.swing.JTextArea" binding="numberPoint">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
+                      <focusable value="false"/>
                       <text value="123"/>
                     </properties>
                   </component>
@@ -186,6 +214,8 @@
                   <component id="cc758" class="javax.swing.JLabel" binding="label">
                     <constraints/>
                     <properties>
+                      <enabled value="true"/>
+                      <focusable value="false"/>
                       <text value=""/>
                     </properties>
                   </component>

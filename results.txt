@@ -2,3 +2,5 @@ ANDREY - 1 points
 Petya - 1000 points
 ANDREY - 3 points
 Vasya - 10 points
+null - 0 points
+22 - 0 points

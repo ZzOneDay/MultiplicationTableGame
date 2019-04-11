@@ -23,10 +23,13 @@ public class Loader {
 
     static void startGame() {
         jFrame = new JFrame();
-//        WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
-        EndGame endGame = new EndGame();
-        jFrame.setContentPane(endGame.getRootPanel());
-//        jFrame.setContentPane(welcomeJPanel.getRootPanel());
+        WelcomeJPanel welcomeJPanel = new WelcomeJPanel();
+//        StartJPanel startJPanel = new StartJPanel();
+//        EndGame endGame = new EndGame();
+//        jFrame.setContentPane(startJPanel.getRootPanel());
+
+//        jFrame.setContentPane(endGame.getRootPanel());
+        jFrame.setContentPane(welcomeJPanel.getRootPanel());
         jFrame.setSize(800, 600);
         jFrame.setLocationRelativeTo(null);
         jFrame.setTitle("2x2=4");
@@ -70,13 +73,13 @@ public class Loader {
     {
         if (jButton.getText().equals(String.valueOf(answer)))
         {
-            timer.stop();
+//            timer.stop();
             points += 1;
             JOptionPane.showMessageDialog(jFrame, "Ответ верный");
         }
         else
         {
-            timer.stop();
+//            timer.stop();
             JOptionPane.showMessageDialog(jFrame,"Неверный ответ.\nПравильный ответ:" + answer);
             miss+=1;
         }
@@ -84,10 +87,10 @@ public class Loader {
 
         // Если 3 ошибки - заканчиваем игру TODO: Переделать на 3 жизни
         if (miss == 3) {
-            timer.stop();
+//            timer.stop();
             endGame(points, "Жизни закончились!");
         } else {
-            timer.stop();
+//            timer.stop();
             jPanel.setVisible(false);
             MainJPanel mainJPanel = new MainJPanel(level, miss, points);
             jFrame.setContentPane(mainJPanel.getRootPanel());

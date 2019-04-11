@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class MainJPanel extends Loader{
     JTextArea gameTitle;
@@ -35,6 +37,7 @@ public class MainJPanel extends Loader{
         this.level = level;
         this.miss = miss;
         this.points = points;
+        textCommand.grabFocus();
 
         time = complexity;
         System.out.println("Time: " + time);
@@ -51,12 +54,37 @@ public class MainJPanel extends Loader{
         button3.addActionListener(actionListenerByButtonCheckAnswer(button3));
         button4.addActionListener(actionListenerByButtonCheckAnswer(button4));
         System.out.println("Очки " + points);
+        textCommand.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+                if (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                {
+                    System.out.println("1");
+                    button1.doClick();
+                }
+                else if (e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_NUMPAD2)
+                {
+                    button2.doClick();
+                }
+                else if (e.getKeyCode() == KeyEvent.VK_3 || e.getKeyCode() == KeyEvent.VK_NUMPAD3)
+                {
+                    button3.doClick();
+                }
+                else if (e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_NUMPAD4)
+                {
+                    button4.doClick();
+                }
+            }
+        });
     }
 
     private ActionListener actionListenerByButtonCheckAnswer (JButton jButton)
     {
         return e -> checkAnswer(jButton, answer, rootPanel, level, points, miss, timer);
     }
+
+
 
 
     JPanel getRootPanel() {
